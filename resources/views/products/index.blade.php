@@ -16,7 +16,7 @@
             <div class="form-group">
                 <form action="{{ route('products.index') }}" method="GET">
                     <input type="text" value="{{$search}}" name="search" class="form-control" placeholder="Search">
-                    <button type="submit" class="btn btn-flat bg-olive pull-right"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+                    <!-- <button type="submit" class="btn btn-flat bg-olive pull-right"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button> -->
                 </form>
             </div>
         </div>
