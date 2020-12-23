@@ -45,14 +45,14 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-2 offset-md-4">
+                                <button type="submit" class="btn btn-primary" id="btn-login">
                                     {{ __('Login') }}
                                 </button>
                             </div>
                         </div>
                     </form>
-                    <button class="btn btn-primary" onclick="window.location.href='/register'">
+                    <button class="btn btn-primary" id="btn-register" style="margin-left: 335px;margin-top: -60px" onclick="window.location.href='/register'">
                         {{ __('Register') }}
                     </button>
                 </div>
