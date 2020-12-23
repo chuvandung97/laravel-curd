@@ -7,43 +7,43 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
                 <div class="card-body">
-                    <ul>
+                    <div Id="errors">
                         @if ($errors->has('username'))
-                        <li>
+                 
                             <span class="help-block">
                                 <strong>{{ $errors->first('username') }}</strong>
                             </span>
-                        </li>
+                    
                         @endif
                         @if ($errors->has('email'))
-                        <li>
+                    
                             <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
-                        </li>
+              
                         @endif
                         @if ($errors->has('password'))
-                        <li>
+             
                             <span class="help-block">
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
-                        </li>
+                  
                         @endif
                         @if ($errors->has('name'))
-                        <li>
+                    
                             <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
                             </span>
-                        </li>
+                   
                         @endif
                         @if ($errors->has('phone'))
-                        <li>
+                     
                             <span class="help-block">
                                 <strong>{{ $errors->first('phone') }}</strong>
                             </span>
-                        </li>
+                    
                         @endif
-                    </ul>
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

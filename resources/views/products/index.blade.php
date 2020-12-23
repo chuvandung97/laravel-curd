@@ -16,7 +16,7 @@
             <div class="form-group">
                 <form action="{{ route('products.index') }}" method="GET">
                     <input type="text" value="{{$search}}" name="search" class="form-control" placeholder="Search">
-                    <!-- <button type="submit" class="btn btn-flat bg-olive pull-right"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button> -->
+                    <button type="submit" class="btn btn-flat bg-olive pull-right" id="btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
                 </form>
             </div>
         </div>
@@ -28,7 +28,8 @@
         </div>
     @endif
    
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="products">
+    <tbody>
         <tr>
             <th>No</th>
             <th>Name</th>
@@ -38,8 +39,8 @@
         @foreach ($products as $product)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->detail }}</td>
+            <td class="products-name">{{ $product->name }}</td>
+            <td class="products-details">{{ $product->detail }}</td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
    
@@ -55,6 +56,7 @@
             </td>
         </tr>
         @endforeach
+        </tbody>
     </table>
   
     {!! $products->links() !!}

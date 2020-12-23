@@ -19,7 +19,7 @@ class ProductController extends Controller
 
         if (isset($search)) {
             $query->where(function ($q) use ($search) {
-                $q->orWhere('search', 'ilike', "%$search%");
+                $q->orWhere('search', 'like', "%$search%");
             });
         }
         
