@@ -23,10 +23,10 @@ class ProductController extends Controller
             });
         }
         
-        $products = $query->latest()->paginate(5);
+        $products = $query->latest()->paginate(50);
   
         return view('products.index',compact(['products', 'search']))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
    
     /**
@@ -49,10 +49,24 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'price' => ['required', 'integer'],
+            'model' => ['required', 'string'],
+            'contact' => ['nullable', 'email:rfc,dns'],
+            'manufacture_date' => ['required'],
+            'manufacture_time' => ['required'],
             'detail' => 'required',
         ]);
   
-        Product::create($request->all());
+        Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'model' => $request->model,
+            'contact' => $request->contact,
+            'manufacture_time' => $request->manufacture_date." ".$request->manufacture_time,
+            'is_inland' => (int)$request->is_inland,
+            'is_active' => $request->is_active ? 1 : 0,
+            'detail' => $request->detail
+        ]);
    
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
@@ -91,10 +105,24 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'price' => ['required', 'integer'],
+            'model' => ['required', 'string'],
+            'contact' => ['nullable', 'email:rfc,dns'],
+            'manufacture_date' => ['required'],
+            'manufacture_time' => ['required'],
             'detail' => 'required',
         ]);
   
-        $product->update($request->all());
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'model' => $request->model,
+            'contact' => $request->contact,
+            'manufacture_time' => $request->manufacture_date." ".$request->manufacture_time,
+            'is_inland' => (int)$request->is_inland,
+            'is_active' => $request->is_active ? 1 : 0,
+            'detail' => $request->detail
+        ]);
   
         return redirect()->route('products.index')
                         ->with('success','Product updated successfully');

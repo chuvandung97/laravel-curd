@@ -23,14 +23,65 @@
     </div>
 @endif
    
-<form action="{{ route('products.store') }}" method="POST">
+<form action="{{ route('products.store') }}" method="POST" id="modelform">
     @csrf
   
      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-8 col-sm-8 col-md-8">
             <div class="form-group">
                 <strong>Name:</strong>
                 <input type="text" name="name" class="form-control" placeholder="Name">
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="form-group">
+                <strong>Price:</strong>
+                <input type="number" name="price" class="form-control" placeholder="Price">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Model:</strong>
+                <select id="mode" name="model" form="modelform">
+                    <option value="Electronic">Electronic</option>
+                    <option value="Houseware">Houseware</option>
+                    <option value="Voucher & Service">Voucher & Service</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Phone & Accessories">Phone & Accessories</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contact:</strong>
+                <input type="email" name="contact" class="form-control" placeholder="example@gmail.com">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <strong>Manufacture Date:</strong>
+                <input type="date" name="manufacture_date" class="form-control" placeholder="Manufacture Date">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <strong>Manufacture Time:</strong>
+                <input type="time" name="manufacture_time" class="form-control" placeholder="Manufacture Time">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="radio" id="inland" name="is_inland" value="1" checked>
+                <label for="inland">Inland</label><br>
+                <input type="radio" id="foreign" name="is_inland" value="0">
+                <label for="foreign">Foreign</label><br>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="checkbox" id="active" name="is_active" checked>
+                <label for="active"> Active</label><br>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
